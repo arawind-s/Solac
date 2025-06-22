@@ -5,3 +5,6 @@ node_modules/
 fast.py
 build5.py
 __pycache__/
+memory_db
+backend/__pycache__
+backend/memory_db
