@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voice Assistant Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <nav class="sidebar" id="sidebar">
+            <div class="sidebar-toggle" id="sidebar-toggle">
+                <i class="fas fa-chevron-left"></i>
+            </div>
+            <div class="logo">
+                <h1>Solac AI</h1>
+            </div>
+            <ul class="nav-links">
+                <li class="nav-item active" data-target="chat-section">
+                    <i class="fas fa-comment-dots"></i>
+                    <span class="nav-text">Chats</span>
+                </li>
+                <li class="nav-item" data-target="journal-section">
+                    <i class="fas fa-book"></i>
+                    <span class="nav-text">Journal</span>
+                </li>
+                <li class="nav-item" data-target="settings-section">
+                    <i class="fas fa-cog"></i>
+                    <span class="nav-text">Settings</span>
+                </li>
+                <li class="nav-item" data-target="memory-section">
+                    <i class="fas fa-brain"></i>
+                    <span class="nav-text">Memory</span>
+                </li>
+            </ul>
+            <div class="theme-toggle">
+                <i class="fas fa-moon"></i>
+                <span class="nav-text">Dark Mode</span>
+                <label class="switch">
+                    <input type="checkbox" id="theme-switch">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+        </nav>
+        <main class="main-content">
+            <section id="chat-section" class="content-section active">
+                <div class="section-header">
+                    <h2>Conversations</h2>
+                    <button id="new-chat-btn" class="primary-btn">
+                        <i class="fas fa-plus"></i>
+                        New Chat
+                    </button>
+                </div>
+                <div class="chat-container">
+                    <div class="chat-list">
+                        <div class="chat-list-header">
+                            <h3>Recent Chats</h3>
+                            <button id="toggle-recent-chats" class="toggle-recent-chats">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                        </div>
+                        <ul id="chats-list">
+                        </ul>
+                    </div>
+                    <div class="chat-window">
+                        <div class="chat-header">
+                            <h3 id="current-chat-title">Select a chat to start</h3>
+                            <div class="chat-actions">
+                                <button id="delete-chat-btn" class="icon-btn" title="Delete Chat">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="messages-container" id="messages-container">
+                        </div>
+                        <div class="message-input-container">
+                            <div class="input-wrapper">
+                                <textarea id="message-input" placeholder="Type your message here..."></textarea>
+                                <button id="upload-image-btn" class="icon-btn" title="Upload Image">
+                                    <i class="fas fa-image"></i>
+                                </button>
+                                <button id="voice-input-btn" class="icon-btn" title="Voice Input">
+                                    <i class="fas fa-microphone"></i>
+                                </button>
+                            </div>
+                            <button id="send-message-btn" class="primary-btn">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="journal-section" class="content-section">
+                <div class="section-header">
+                    <h2>Journal Entries</h2>
+                    <button id="new-journal-btn" class="primary-btn">
+                        <i class="fas fa-plus"></i>
+                        New Entry
+                    </button>
+                </div>
+                <div class="journal-container">
+                    <div class="journal-list">
+                        <h3>Recent Entries</h3>
+                        <ul id="journal-entries-list">
+                        </ul>
+                    </div>
+                    <div class="journal-editor">
+                        <div class="journal-header">
+                            <input type="text" id="journal-title" placeholder="Entry Title">
+                            <div class="journal-actions">
+                                <button id="analyze-journal-btn" class="secondary-btn">
+                                    <i class="fas fa-chart-line"></i>
+                                    Analyze
+                                </button>
+                                <button id="save-journal-btn" class="primary-btn">
+                                    <i class="fas fa-save"></i>
+                                    Save
+                                </button>
+                                <button id="delete-journal-btn" class="icon-btn" title="Delete Entry">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <textarea id="journal-content" placeholder="Write your thoughts here..."></textarea>
+                        <div class="journal-analysis" id="journal-analysis">
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="settings-section" class="content-section">
+                <div class="section-header">
+                    <h2>Settings</h2>
+                    <button id="save-settings-btn" class="primary-btn">
+                        <i class="fas fa-save"></i>
+                        Save Settings
+                    </button>
+                </div>
+                <div class="settings-container">
+                    <div class="settings-group">
+                        <h3>Accessibility Templates</h3>
+                        <div class="setting-item">
+                            <label for="disability-template">Select Template</label>
+                            <select id="disability-template">
+                                <option value="">Select a template</option>
+                            </select>
+                        </div>
+                        <div class="template-preview" id="template-preview">
+                        </div>
+                    </div>
+                    <div class="settings-group">
+                        <h3>General Settings</h3>
+                        <div class="setting-item">
+                            <label for="system-prompt">System Prompt</label>
+                            <textarea id="system-prompt" rows="4"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="memory-section" class="content-section">
+                <div class="section-header">
+                    <h2>Memory Management</h2>
+                    <!-- <button id="clear-memory-btn" class="danger-btn">
+                        <i class="fas fa-trash"></i>
+                        Clear All Memory
+                    </button> -->
+                </div>
+                <div class="memory-container">
+                    <div class="memory-info">
+                        <div class="info-card">
+                            <h3>How Memory Works</h3>
+                            <p>The assistant remembers your conversations and journal entries to provide more personalized responses. This memory helps the AI understand your context and preferences over time.</p>
+                        </div>
+                        <div class="info-card">
+                            <h3>Memory Privacy</h3>
+                            <p>All memory is stored locally on your device. Clearing memory will reset the assistant's knowledge about your past interactions.</p>
+                        </div>
+                    </div>
+                    <div class="memory-warning">
+                        <h3>Warning</h3>
+                        <p>Clearing memory will delete all stored context from your conversations. This action cannot be undone.</p>
+                        <button id="confirm-clear-memory" class="danger-btn">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            Confirm Clear Memory
+                        </button>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <div class="modal" id="new-chat-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Start New Chat</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="new-chat-title">Chat Title</label>
+                    <input type="text" id="new-chat-title" placeholder="Enter a title for your chat">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="create-chat-btn" class="primary-btn">Create</button>
+                <button class="primary-btn">Cancel</button>
+            </div>
+        </div>
+    </div>
+    <div class="toast" id="toast">
+        <div class="toast-content">
+            <i class="fas fa-info-circle toast-icon"></i>
+            <div class="toast-message">Message here</div>
+        </div>
+        <div class="toast-progress"></div>
+    </div>
+    <div class="loading-spinner" id="loading-spinner">
+        <div class="spinner"></div>
+    </div>
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+</body>
+</html>
