@@ -17,14 +17,7 @@ This project was developed under 24 hours during a hackathon, led by me, with fu
   Crafted structured, markdown-friendly prompts for:
   - Memory recall
   - Contextual conversation
-  - Accessibility support (ASD, ADHD, Dyslexia, Speech Delay)
-
-- **Specially Abled Accessibility Support**  
-  Templates built for:
-  - Autism Spectrum Disorder (ASD)
-  - Attention Deficit Hyperactivity Disorder (ADHD)
-  - Dyslexia
-  - Speech & Language Delay
+  - Accessibility support
 
 - **Emotion-Aware Journal Module**  
   - Write and manage journal entries  
