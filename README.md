@@ -28,10 +28,6 @@ This project was developed under 24 hours during a hackathon, led by me, with fu
   - Upload images (base64 encoded)  
   - Gemini 2.0 describes and integrates image content into conversation
 
-- **Voice Input**  
-  - One-click speech-to-text capture via browser  
-  - Ideal for accessibility and ease of use
-
 - **Modern Frontend Dashboard**  
   - HTML/CSS/JS interface  
   - Markdown-rendered responses  
